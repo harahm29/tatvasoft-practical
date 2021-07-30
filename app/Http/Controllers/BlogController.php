@@ -72,10 +72,12 @@ class BlogController extends Controller
 
             $blog = Blog::where('id',$request->id)->update($data);
             if($blog){
-                notify()->success('Blog Updated!!');
+               return redirect('/')->with('success','Blog Updated!');
             }else{
-                notify()->error('Blog not Updated!!');
+
+                return redirect('/')->with('error','Blog not Updated!');
             }
+
             return redirect('/');
         }else{
 
@@ -123,11 +125,13 @@ class BlogController extends Controller
 
 
             $blog = Blog::create($data);
+
             if($blog){
-                notify()->success('Blog Created!!');
-            }else{
-                notify()->error('Blog not Created!!');
-            }
+                return redirect('/')->with('success','Blog Created!');
+             }else{
+
+                 return redirect('/')->with('error','Blog not Created!');
+             }
             return redirect('/');
 
 

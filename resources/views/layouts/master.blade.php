@@ -28,15 +28,14 @@
     }
     </style>
 
-    <link href="{{url('vendor/mckenziearts/laravel-notify/css/notify.css')}}"/>
-    @notifyCss
+
 </head>
 <!--end::Head-->
 <!--begin::Body-->
 
 <body id="kt_body" style="background-image: url({{ asset('/media/bg/bg-10.jpg)') }}"
     class="quick-panel-right demo-panel-right offcanvas-right header-fixed subheader-enabled page-loading">
-    @include('notify::messages')
+
     @include('layouts.header')
 
     @include('layouts.footer')
@@ -58,8 +57,7 @@
     <!--end::Page Scripts-->
     @stack('js')
 
-    <script src="{{url('vendor/mckenziearts/laravel-notify/js/notify.js')}}"></script>
-    @notifyJs
+
 </body>
 <!--end::Body-->
 

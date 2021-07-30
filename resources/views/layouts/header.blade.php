@@ -99,7 +99,7 @@
             </div>
             <!--end::Header-->
             <!--begin::Content-->
-
+            @include('layouts.msg')
             @yield('content')
 
             <!--end::Content-->
