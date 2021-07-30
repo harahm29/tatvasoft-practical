@@ -26,8 +26,8 @@ Auth::routes();
 
 Route::middleware('auth')->prefix('blog')->group(function () {
     Route::get('/create','BlogController@index');
-    Route::get('/update/{id?}','BlogController@index');
-    Route::post('/delete/{id?}','BlogController@index')->name('blog.delete');
+    Route::get('/update/{id?}','BlogController@update');
+    Route::post('/delete/{id?}','BlogController@delete')->name('blog.delete');
     Route::post('/onoff/{id?}','BlogController@onoff')->name('blog.onoff');
     Route::post('/store','BlogController@store');
 });
