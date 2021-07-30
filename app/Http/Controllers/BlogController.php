@@ -89,4 +89,43 @@ class BlogController extends Controller
 
 
     }
+
+
+
+    public function delete(Request $request)
+    {
+        $notes = Blog::where(['id'=>$request->id])
+        ->update(['is_delete'=>'true']);
+        if($notes)
+        {
+            $data['status'] = "success";
+            $data['message'] = "Blog is deleted successfully!";
+        }
+        else
+        {
+            $data['status'] = "error";
+            $data['message'] = "Blog is not deleted.";
+        }
+
+        return response()->json($data);
+    }
+
+
+    public function onoff(Request $request)
+    {
+        $notes = Blog::where(['id'=>$request->id])
+        ->update(['is_active'=>$request->value]);
+        if($notes)
+        {
+            $data['status'] = "success";
+            $data['message'] = "Blog is ".$request->value." successfully!";
+        }
+        else
+        {
+            $data['status'] = "error";
+            $data['message'] = "Blog is not ".$request->value." .";
+        }
+
+        return response()->json($data);
+    }
 }

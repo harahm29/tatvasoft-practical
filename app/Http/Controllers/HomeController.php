@@ -31,16 +31,5 @@ class HomeController extends Controller
         return view('welcome');
     }
 
-    public function blog(Request $Request,$user=null)
-    {
 
-        $where['is_delete']="false";
-        $where['is_active']="false";
-        if($user){
-            $where['user_id']=$user;
-        }
-        //dd($where);
-       $data= Blog::with('user')->where($where)->get();
-       return json_encode($data);
-    }
 }

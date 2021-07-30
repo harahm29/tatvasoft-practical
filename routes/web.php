@@ -16,17 +16,18 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 })->name('main');
-
+Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/blogs/{user?}', 'CommonController@blog')->name('blogs');
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/blogs/{user?}', 'HomeController@blog')->name('blogs');
+
 
 
 Route::middleware('auth')->prefix('blog')->group(function () {
     Route::get('/create','BlogController@index');
     Route::get('/update/{id?}','BlogController@index');
-    Route::get('/delete/{id?}','BlogController@index');
+    Route::post('/delete/{id?}','BlogController@index')->name('blog.delete');
+    Route::post('/onoff/{id?}','BlogController@onoff')->name('blog.onoff');
     Route::post('/store','BlogController@store');
 });
